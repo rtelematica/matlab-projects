@@ -1,0 +1,10 @@
+%ley de las tangentes en a
+clc
+format
+C=input('indicar C en grados');
+A=input('indicar A en grados');
+c=input('introducir lado c');
+resta=(A-C)/2;
+suma=(A+C)/2;
+a=(c*(tand(resta)+tand(suma)))/(tand(suma)-tand(resta));
+disp('el lado a vale'),disp(a)

@@ -1,0 +1,140 @@
+
+close all;
+clear all;
+clc; 
+
+%% FILTRO DE PROMEDIO MÓVIL - COSENO
+        
+% 3ra. Parte
+%
+%    Hacer la 1ra y 2d parte pero con una señal de entrada cos(w0t)
+
+    ts = 0.5;    % Duracion del pulso en alto
+    tamP = 100;  % Número de muestras en el pulso
+    N = 10;      % Número de ciclos 
+
+    tiempo = [ 0 : ts/( 2 * tamP ) : N * ts - ts / ( 2 * tamP ) ];
+        
+    % Señal coseno, utiliza como vector a tiempo
+    senalMovilN = cos( 2 * pi * tiempo );
+     
+    figure( 1 )
+    plot( tiempo, senalMovilN ),
+    title('Función Coseno'),
+    xlabel('n'),
+    ylabel('Amplitud');
+    
+    % Genera ruido gaussiano (normnrd) media=0, varianza = 1
+    
+    
+    ruido1 = normrnd( 0, 0.1, length( senalMovilN ) );
+    
+%     figure( 2 )
+%     plot( tiempo, ruido1 )
+%     title('Ruido Generado'),
+%     xlabel('n'),
+%     ylabel('Amplitud');
+%     
+    % Suma ruido a señal periódica
+    senalCont = senalMovilN + ruido1( 1, : );
+    
+    % Señal contaminada
+    figure( 2 );
+    plot( tiempo, senalCont ),
+    title('Función Coseno Contaminada'),
+    xlabel('n'),
+    ylabel('Amplitud');
+    
+    
+    % Filtro de promedio móvil
+    Mc = 50;
+    ac = 0;
+    
+    d = senalCont;
+    
+    for i = 1 : length( senalMovilN ) - ( Mc - 1 )
+        for j = 0 : Mc - 1
+            
+           ac = ac + d( i + j ); 
+            
+        end
+        
+        y( i ) = ac / Mc;
+        ac = 0;
+        
+    end
+    
+    tiempo2 = tiempo( 1 : length(tiempo) - (Mc -1));
+    figure( 3 )
+    plot( tiempo2, y ),
+    title('Coseno contaminado, filtrado por filtro de promedio móvil: M = 50'),
+    xlabel('n'),
+    ylabel('Amplitud');
+
+    %pause()
+  
+%4ta. Parte
+%
+%   Graficar respuesta en frecuencia de cada filtro
+
+     % Coeficientes del filtro
+     
+     %Mc = 5
+     coef2 = ones( 1, Mc ) / Mc;
+     
+     figure( 4 )
+     freqz( coef2, 1 ),
+     title('Respuesta en Frecuencia del filtro móvil para M = 50');
+     
+% 5ta. Parte  Ventanas
+%
+ 
+    % Se establece la venta a usar
+    ventana = hamming( 120 );
+    %ventana = chebwin( 200 );
+    %ventana = nuttallwin( 200 );
+    
+    figure( 5 )
+    stem( 1 : length( ventana ), ventana ),
+    %Blackman-Harris
+%     title( 'Ventana Blackman-Harris N = 200' ),
+%     xlabel( 'n' )
+%     ylabel( 'Amplitud' );
+    
+    % pause()
+    % Determinamos los coeficientes de la ventana
+    coefVent = fir1( length( ventana ) - 1, 0.1, ventana );
+%     
+%     % Respuesta en frecuencia
+%     figure( 5 )
+%     freqz( coefVent, 1 ),
+%     title( 'Respuesta en frecuencia de una vantana Blackman-Harris con N = 200' );
+%     
+%     % Respuesta al impulso
+%     figure( 6 )
+%     impz( coefVent, 1 ),
+%     title( 'Respuesta al impulso de una ventana Blackman-Harris N = 200' );
+%     
+%     % Plano complejo
+%     figure( 7 )
+%     zplane( coefVent, 1 ),
+%     title( ' Constelacion de polos y ceros de una ventana Blackman-Harris con N = 200' );  
+%     
+% 6ta. Parte  Filtrado mediante ventanas
+%    
+    % Se filtra la señal mediante la funcion filter
+    datosFiltrados = filter( coefVent, 1, senalCont );
+    
+    figure( 8 )
+    plot( 1:length(datosFiltrados), datosFiltrados ),
+    title('Señal coseno filtrado por un ventna Hamming con N = 120'),
+    xlabel('n'),
+    ylabel('Amplitud');
+
+    
+    %y = xcorr( senalMovilN,datosFiltrados);
+    
+    %figure(9)
+    %plot(1:length(y), y)
+    
+    

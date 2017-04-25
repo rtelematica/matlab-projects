@@ -1,0 +1,17 @@
+function p = perdidas_Usuario( disUser, desEst )
+
+    per = 0;
+    Bi = 3;
+    hb = 30;
+    
+    for i = 1 : length(disUser)
+        
+        %Ls
+        
+        %Ls = desEst * randn(1);
+        Ls = normpdf(X,0,SIGMA) 
+        per(i) = 10*Bi*log10(disUser(i)) - 20*log10(hb) - 20*log10(hm) + Ls;
+        
+    end
+    p = per;
+end

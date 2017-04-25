@@ -1,0 +1,23 @@
+
+close all
+clear all
+x0 = 0;
+y0 = 0;
+r = 1;
+h = sqrt(3)/2 * r;
+N = 50;
+
+DELTA = 0.01;
+
+x_l = [-r r r -r -r];
+y_l = [h  h -h -h h]; 
+
+
+
+[x, y] = distibucionUsuarios(x0, y0, N, r, DELTA);
+
+
+hold on
+plot(x, y, 'o')
+
+plot(x_l, y_l);

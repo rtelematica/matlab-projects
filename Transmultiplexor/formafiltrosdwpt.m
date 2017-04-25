@@ -1,0 +1,51 @@
+function [hx] = formafiltrosdwpt(n_stages,branch,h0,h1)
+p = branch;
+
+% Integrated version for DWPT/TMX filter generation
+
+hx = 0;
+hx(1) = 1;
+
+switch n_stages
+    case 1
+        if mod(branch,2) ~= 0
+            hx = h0;
+        else
+            hx = h1;
+        end
+    case 2
+        switch branch
+            case 1
+                hx = conv(h0,upsample(h0,2));
+            case 2
+                hx = conv(h0,upsample(h1,2));
+            case 3
+                hx = conv(h1,upsample(h0,2));
+            case 4
+                hx = conv(h1,upsample(h1,2));
+            otherwise
+                beep;
+                fprintf('\nERROR');
+        end
+        
+    otherwise
+        
+        for i=0:n_stages-2
+            q = floor(p /(2^(n_stages-1-i)));
+            if (q == 1)
+                hx = conv(hx,upsample(h1,2^i));
+            else
+                hx = conv(hx,upsample(h0,2^i));
+            end
+            p = mod(p,2^(n_stages-1-i)); %For DWPT and TMX
+        end
+        
+        t = mod(branch,2);
+        if(t == 1)
+            hx = conv(hx,upsample(h0,2^(n_stages-1)));
+        else
+            hx = conv(hx,upsample(h1,2^(n_stages-1)));
+        end
+        
+        
+end

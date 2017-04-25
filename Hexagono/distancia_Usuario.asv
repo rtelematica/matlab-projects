@@ -1,0 +1,14 @@
+function z = distancia_Usuario( d_x, d_y, h, r )
+
+    dist = 0;
+    
+    
+    
+    for i = 1 : length(d_x)
+       
+        
+        
+    end
+    
+    z = dist;
+end

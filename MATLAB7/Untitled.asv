@@ -1,0 +1,22 @@
+clc
+clear all
+
+for n=0:1:10
+    
+   hold on
+   plot(n,1,'r');
+end
+
+hold off
+figure (2)
+for m=4:1:10
+    hold on
+    plot(m,-1,'r');
+end
+hold off
+figure (3)
+for m=0:1:4
+    hold on
+    plot(m,1,'r');
+end
+    

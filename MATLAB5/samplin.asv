@@ -1,0 +1,21 @@
+%% Samplin
+
+function y = samplin( ni , nf )
+ni = -10;
+nf = 10;
+n = 0;
+i = 1;
+for j = ni : nf
+
+    n( i ) = j;    
+end
+
+i = 1;
+for j = ni : nf
+    
+    if j == 0
+        y(i) = 1;
+    end
+    
+    y( i ) = sin(pi*j)/
+end

@@ -1,0 +1,10 @@
+N = 1 - PBER = 1 
+N = 2 - PBER = 3 
+N = 3 - PBER = 6 
+N = 4 - PBER = 10 
+N = 5 - PBER = 15 
+N = 6 - PBER = 21 
+N = 7 - PBER = 28 
+N = 8 - PBER = 36 
+N = 9 - PBER = 45 
+N = 10 - PBER = 55 

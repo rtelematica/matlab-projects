@@ -1,0 +1,12 @@
+%la maxima velocidad de un bloque deslizandose x  un plano
+%inclinado esta dada por la foemula;
+% v=sqrt2gh(1-mucot0)
+clc
+ input ('introduce el valor de g:')%ag
+ input ('introduce el valor de h:')%ai
+ input  ('introduce el angulo:') %angulo
+ input ('introduce el coeficiente de friccion:')%cof. fricc.
+  
+input ('calcula la velocidad ')
+
+v= (2)(9.8)(10)(1-(0.10)(cot(20°)))

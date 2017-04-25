@@ -1,0 +1,9 @@
+
+%% Graficas Polares IRAIS
+
+% Dipolo doblado
+
+tetha = [0:10:360];  % en grados
+tetha = tetha *(pi/180);    % radianes
+
+

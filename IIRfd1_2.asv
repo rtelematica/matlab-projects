@@ -1,0 +1,52 @@
+%% Filtro IIR forma directa I
+
+%coeficientes del filtro
+a=[1,2,3,4];
+b=[1,2,3,4];
+
+%señal de entrada
+x=[1,2,3,4,5,6,7,8,9,10];
+
+buf_x(1:length(b)) = 0;
+buf_y(1:length(a)) = 0;
+
+%inicializo variables
+acuFIR = 0;
+acuIIR = 0;
+y=0;
+
+%
+M=length(b);
+N=length(a);
+
+for n = 1 : length(x)
+    
+    buf_x(1) = x(n);
+
+    %A
+    for j = 1 : N        
+        
+        acuIIR = acuIIR + a(j+1) * buf_y(j);        
+        
+    end    
+    
+    %B
+    for k = 1 : M
+
+       acuFIR = acuFIR + b(k) * buf_x(k);    
+
+    end
+    
+    %Recorremos los buffer
+    
+    for k = N-1 : ; k--)
+	    xx[k] = xx[k-1];
+    
+end
+
+
+y
+
+filter (b,a,x)
+
+

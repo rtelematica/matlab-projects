@@ -1,0 +1,284 @@
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+
+sistema =
+
+     2    -2     1    -1     4     1     4     6     1
+
+
+columna =
+
+     4     4
+     1    16
+    16    36
+
+??? Error using ==> mldivide
+Matrix dimensions must agree.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\circu.m',8,0)">circu at 8</a>
+y=sistema\columna
+
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+
+sistema =
+
+     2    -2     4     1     2     3     4     6     1
+
+
+columna =
+
+     4     4
+     1    16
+    16    36
+
+??? Error using ==> mldivide
+Matrix dimensions must agree.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\circu.m',8,0)">circu at 8</a>
+y=sistema\columna
+
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+D
+y1
+E
+y2
+F
+y3
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+D
+y1
+E
+y2
+F
+y3
+clc
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+D
+y1
+E
+y2
+F
+y3
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+??? Error using ==> vertcat
+CAT arguments dimensions are not consistent.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\circu.m',7,0)">circu at 7</a>
+columna=-[A(1)^2 +A(2)^2;B(1)^2+B(2)^2; C(1)^2+C(2)^2 ];
+
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+??? Error using ==> vertcat
+CAT arguments dimensions are not consistent.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\circu.m',7,0)">circu at 7</a>
+columna=-[A(1)^2 +A(2)^2 1;B(1)^2+B(2)^2 1;C(1)^2+C(2)^2 1];
+
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+??? Error using ==> vertcat
+CAT arguments dimensions are not consistent.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\circu.m',7,0)">circu at 7</a>
+columna=-[A(1)^2 +A(2)^2;B(1)^2+B(2)^2;C(1)^2+C(2)^2];
+
+circu
+introduce las coordenadas A(x,y) 1° punto[2, -2]
+introduce las coordenadas de B(x,y) 2° punto[-1, 4]
+introduce las coordenadas de C(x,y) 3° punto[4,6]
+D
+     -16/3     
+
+E
+     -25/6     
+
+F
+     -17/3     
+
+clear all, clc
+tan
+??? Error: <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\tan.m',9,53)">File: tan.m Line: 9 Column: 53</a>
+Unbalanced or unexpected parenthesis or bracket.
+
+tan
+??? Error: <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\tan.m',9,53)">File: tan.m Line: 9 Column: 53</a>
+Unbalanced or unexpected parenthesis or bracket.
+
+tan
+??? Error: <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\tan.m',9,53)">File: tan.m Line: 9 Column: 53</a>
+Unbalanced or unexpected parenthesis or bracket.
+
+tan
+Warning: Function C:\Users\Alumnos\Documents\MATLAB\tan.m has the same name as a MATLAB builtin. We suggest you rename the function to avoid a potential
+name conflict.
+Warning: Function C:\Users\Alumnos\Documents\MATLAB\tan.m has the same name as a MATLAB builtin. We suggest you rename the function to avoid a potential
+name conflict.
+??? Error: <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\tan.m',9,53)">File: tan.m Line: 9 Column: 53</a>
+Unbalanced or unexpected parenthesis or bracket.
+
+clc
+Warning: Function C:\Users\Alumnos\Documents\MATLAB\tan.m has the same name as a MATLAB builtin. We suggest you rename the function to avoid a potential
+name conflict.
+Warning: Function C:\Users\Alumnos\Documents\MATLAB\tan.m has the same name as a MATLAB builtin. We suggest you rename the function to avoid a potential
+name conflict.
+tan
+indicar C en grados 36°
+???  36°
+       |
+Error: The input character is not valid in MATLAB statements or expressions.
+
+tan
+indicar C en grados36
+indicar A en grados68
+introducir lado c10
+??? Undefined function or method 'suma' for input arguments of type 'double'.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\tan.m',8,0)">tan at 8</a>
+suma(A+C)/2; %#ok<VUNUS>
+
+tan
+indicar C en grados36
+indicar A en grados68
+introducir lado c10
+??? Undefined function or method 'suma' for input arguments of type 'double'.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\tan.m',8,0)">tan at 8</a>
+suma(A+C)/2; %#ok<VUNUS>
+
+tan
+indicar C en grados36
+indicar A en grados68
+introducir lado c10
+??? Undefined function or method 'suma' for input arguments of type 'double'.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\tan.m',8,0)">tan at 8</a>
+suma(A+C)/2;
+
+tan
+indicar C en grados36
+indicar A en grados68
+introducir lado c10
+
+
+tan
+indicar C en grados36
+indicar A en grados68
+introducir lado c10
+el lado a vale
+   15.7742
+
+180-36-68
+
+ans =
+
+    76
+
+tanb
+indicar C en grados36
+indicar B en grados76
+introducir lado c10
+el lado b vale
+   16.5077
+
+tan
+indicar C en grados36
+indicar A en grados68
+indicar B en grados76
+introducir lado c10
+el lado a vale
+   15.7742
+
+tan
+indicar C en grados36
+indicar A en grados68
+indicar B en grados76
+introducir lado c10
+el lado a vale
+   15.7742
+
+el lado b vale
+   15.7742
+
+tan
+indicar C en grados36
+indicar A en grados68
+indicar B en grados76
+introducir lado c10
+el lado a vale
+   15.7742
+
+el lado b vale
+   16.5077
+
+clc;clear all
+tiro
+??? Input argument "v" is undefined.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\tiro.m',3,0)">tiro at 3</a>
+vx=v*cosd(theta); vy=v*send(theta); g=9.8;
+
+alcance
+??? Input argument "v" is undefined.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\alcance.m',3,0)">alcance at 3</a>
+vx=v*cosd(theta); vy=v*send(theta); g=9.8;
+
+alcance (400, 30)
+??? Undefined function or method 'send' for input arguments of type 'double'.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\alcance.m',3,0)">alcance at 3</a>
+vx=v*cosd(theta); vy=v*send(theta); g=9.8;
+
+alcance(400, 30)
+??? Undefined function or method 'send' for input arguments of type 'double'.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\alcance.m',3,0)">alcance at 3</a>
+vx=v*cosd(theta); vy=v*send(theta); g=9.8;
+
+alcance(400, 30)
+??? Undefined function or method 'send' for input arguments of type 'double'.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\alcance.m',3,0)">alcance at 3</a>
+vx=v*cosd(theta); vy=v*send(theta); g=9.8;
+
+clc
+alcance(400,30)
+??? Undefined function or method 'send' for input arguments of type 'double'.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\alcance.m',3,0)">alcance at 3</a>
+vx=v*cosd(theta); vy=v*send(theta); g=9.8;
+
+alcance(400,30)
+??? Undefined function or variable 'vg'.
+
+Error in ==> <a href="matlab: opentoline('C:\Users\Alumnos\Documents\MATLAB\alcance.m',4,0)">alcance at 4</a>
+t=raiz(-g/2,vg,0);
+
+alcance(400,30)
+  2.0785e+003
+
+playbackdemo('LinkedPlotsAndDataBrushing')
+alcance(400,30)
+     0
+

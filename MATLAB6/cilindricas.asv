@@ -1,0 +1,21 @@
+
+clear all;
+t = [0 : pi/16 : 2*pi ];
+f = [0 : pi/16 : pi ];
+
+[T,F] = meshgrid(t, f);
+
+% R = T.*sin( F );
+%R= ((cos(pi/2*cos(T)))./(sin(T))) .* ( ( sin( 5*pi/2*(1/2+ sin(T).*cos(F)))) ./ (( sin(pi/2*(1/2 + sin(T).*cos(F))))));         
+R = cos(pi/2*cos(T))./sin(T).*sin(5*pi/4*sin(T).*sin(F))./sin(pi/4*sin(T).*sin(F))
+
+x = R.*sin(F).*cos(T);
+y = R.*sin(F).*sin(T);
+z = R.*cos(F);
+ 
+surfl(x,y,z);
+shading interp;
+colormap pink;
+ 
+grid on;
+axis equal;

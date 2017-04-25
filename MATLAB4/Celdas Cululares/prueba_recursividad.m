@@ -1,0 +1,112 @@
+function [x,y] = prueba_recursividad( x0, y0, niv, ref, r, h, l )
+  
+    %Opcion de fin de funcion
+    if ref > niv
+       x = -1;
+       y = -1;
+       return
+    end 
+  
+    
+    y2h = y0 + 2*h;  
+    y2h_ = y0 - 2*h;  
+    
+    xrl = x0 + r + l;
+    xrl_ = x0 - r - l;
+    
+    yh = y0 + h;  
+    yh_ = y0 - h;  
+
+        
+    h_x = [ x0 xrl xrl x0 xrl_ xrl_ ];
+    h_y = [ y2h yh yh_ y2h_ yh_ yh ];
+    
+    for i = 1 : 6
+        [aux_x,aux_y] = prueba_recursividad( h_x(i), h_y(i), niv, ref + 1, r, h, l );
+        if aux_x ~= -1
+            
+            h_x = [h_x aux_x];
+            h_y = [h_y aux_y];       
+            
+        end 
+    end
+    
+    x = h_x;
+    y = h_y;
+    
+    return;
+end
+
+% function [x,y] = prueba_recursividad( x0, y0, numCel, niv, ref, r, h, l )
+%   
+%     Opcion de fin de funcion
+%     if ref > niv
+%        x = -1;
+%        y = -1;
+%        return
+%     end 
+%   
+%     A_x = x0;
+%     A_y = y0 + 2*h;  
+% 
+%     B_x = x0 + r + l;
+%     B_y = y0 + h;  
+% 
+%     C_x = x0 + r +l;
+%     C_y = y0 - h;  
+% 
+%     D_x = x0;
+%     D_y = y0 - 2*h;  
+% 
+%     E_x = x0 - r - l;
+%     E_y = y0 - h;  
+% 
+%     F_x = x0 - r - l;
+%     F_y = y0 + h;  
+%     
+%     h_x = [ A_x B_x C_x D_x E_x F_x];
+%     h_y = [ A_y B_y C_y D_y E_y F_y];
+%     
+%     [aux_x,aux_y] = prueba_recursividad( A_x, A_y, numCel, niv, ref + 1, r, h, l );
+%     if aux_x ~= -1
+%         
+%         h_x = [h_x aux_x];
+%         h_y = [h_y aux_y];       
+%     end 
+%     
+%     [aux_x,aux_y] = prueba_recursividad( B_x, B_y, numCel, niv, ref + 1, r, h, l );
+%     if aux_x ~= -1
+%         h_x = [h_x aux_x];
+%         h_y = [h_y aux_y];
+%     end 
+%     
+%     [aux_x,aux_y] = prueba_recursividad( C_x, C_y, numCel, niv, ref + 1, r, h, l );
+%     if aux_x ~= -1
+%         h_x = [h_x aux_x];
+%         h_y = [h_y aux_y];
+%     end 
+%     
+%     [aux_x,aux_y] = prueba_recursividad( D_x, D_y, numCel, niv, ref + 1, r, h, l );
+%     if aux_x ~= -1
+%         h_x = [h_x aux_x];
+%         h_y = [h_y aux_y];
+%     end 
+%     
+%     [aux_x,aux_y] = prueba_recursividad( E_x, E_y, numCel, niv, ref + 1, r, h, l );
+%     if aux_x ~= -1
+%         h_x = [h_x aux_x];
+%         h_y = [h_y aux_y];
+%     end 
+%     
+%     [aux_x,aux_y] = prueba_recursividad( F_x, F_y, numCel, niv, ref + 1, r, h, l );
+%     if aux_x ~= -1
+%         h_x = [h_x aux_x];
+%         h_y = [h_y aux_y];
+%     end 
+%     c = 10;
+%     
+%     x = h_x;
+%     y = h_y;
+%     
+%     return;
+% end

@@ -1,0 +1,19 @@
+h=[1,2,3,4];
+x=[1,2,3,4,5,6,7,8,9,10];
+xx=[x,zeros(1,length(h)-1)];
+y=0;
+acu=0;
+
+for n = 2:(length(h)+length(x))
+    
+    for k = 1 : length(h)
+        
+       acu=acu+h(k)*x(n-k);
+        
+    end    
+    
+    y(n-1)=acu;    
+    acu = 0;
+    
+end
+

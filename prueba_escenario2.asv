@@ -1,0 +1,1 @@
+res = escenario_interferencia2( 0, 0, 1, 30, 1, 0.01, )

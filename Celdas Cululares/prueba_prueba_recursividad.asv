@@ -1,0 +1,25 @@
+close all
+r = 5;
+h = sqrt(3)/2 * r;
+l = r / 2;
+x0 = 0;
+y0 = 0;
+    
+[aux_x, aux_y] = prueba_recursividad( x0, y0, 10, 2, 1, r, h, l );
+
+%quitamos los repetidos
+
+for i = 1 : length(aux_x)
+    
+    
+end
+
+
+hold on
+for i = 1 : length(x)
+  
+    dibujaHexagono( r, x(i), y(i));
+    
+end
+
+dibujaHexagono( r, 0, 0);

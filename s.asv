@@ -1,0 +1,16 @@
+
+
+c2 = cos( pi/2 * cos( tetha ) );
+st = sin( theta );
+sp = sin( phi );
+
+s2 = sin( 5*pi/4 * st * sp);
+
+se5 = sin(pi/4 * st * sp);
+
+
+f = ( c2 * c2 / st ) *( s2 * s2 / se5 );
+
+
+
+

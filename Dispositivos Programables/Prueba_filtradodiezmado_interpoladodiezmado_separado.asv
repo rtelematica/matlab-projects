@@ -1,0 +1,93 @@
+%% Prueba filtrado-diezmado interpolado-diezmado separado
+
+clc
+clear all
+fil = [ 1 : 5];
+fil2 = [ 1: 7];
+x = [1:10];
+
+FD = 2;
+FI = 2;
+buf(1:length(fil)) = 0;
+a = 0;
+v1 = 0;
+
+numSum = 0;
+numMult = 0;
+numAsig = 0;
+numDes = 0;
+
+for i = 1 : length(x) + length(fil) - 1
+    
+    if i <= length(x)
+        buf(1) = x(i);
+        numAsig = numAsig + 1;
+    else
+        buf(1) = 0;
+        numAsig = numAsig + 1;
+    end
+    
+    a = 0;
+    numAsig = numAsig + 1;
+    for k = 1 : length(fil)
+        a = a + fil(k) * buf(k);
+        
+        numSum = numSum + 1;
+        numMult = numSum + 1;
+        numAsig = numAsig + 1;
+        
+    end
+    
+    for d = length(fil) : -1 : 2
+        buf(d) = buf(d-1);
+        numDes = numDes + 1;
+    end
+    v1(i) = a;
+end
+
+dws = downsample(v1,FD);
+
+ups = upsample(dws,FI);
+
+buf2(1:length(fil2)) = 0;
+y = 0;
+for i = 1 : length(ups) + length(fil2) - 1
+    
+    if i <= length(ups)
+        buf2(1) = ups(i);
+        numAsig = numAsig + 1;
+    else
+        buf2(1) = 0;
+        numAsig = numAsig + 1;
+    end
+    
+    a = 0;
+    numAsig = numAsig + 1;
+    for k = 1 : length(fil2)
+        a = a + fil2(k) * buf2(k);
+        
+         numSum = numSum + 1;
+         numMult = numSum + 1;
+         numAsig = numAsig + 1;
+        
+    end
+    
+    for d = length(fil2) : -1 : 2
+        buf2(d) = buf2(d-1);
+        numDes = numDes + 1;
+    end
+    y(i) = a;
+end
+
+vv = conv(x,fil);
+dow = downsample(vv,FD);
+up = upsample(dow, FI);
+yy = conv(up,fil2)
+
+y
+
+display 'INFO'
+numSum
+numMult
+numAsig
+numDes

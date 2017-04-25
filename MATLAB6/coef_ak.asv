@@ -1,0 +1,11 @@
+%% Function coef_ak
+%Funcion que calcula el coeficiente de la serier de fourier con la funcion
+%
+%           (2N1 + 1) / N,  k = 0, +-N, +-2N...
+%   ak = 
+%           1/N sin[k*pi*(2N1 + 1)/N] / sin(k*pi/N)       
+
+function ak = coef_ak( k, N )
+
+    if mod( k, N ) == 0
+end

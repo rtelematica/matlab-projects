@@ -1,0 +1,7 @@
+
+h
+H(1:10000) = 1;
+
+h = ifft(H);
+
+plot(1:length(h), h)

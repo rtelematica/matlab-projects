@@ -1,0 +1,62 @@
+%% Transmultiplexor
+
+%Numero de canales
+Nc = 4;
+
+%Fases
+fases = log2(Nc);
+
+%Tamaño de la señal de estrada para cada canal
+tamX = 10;
+
+%Factor de diezmado
+FD = 2;
+%Factor de interpolacion
+FI = 2;
+
+%Señales de entrada: La señal se genera como una matriz de Nc filas x tamX
+%columnas, cada celda de la matriz es igualada a var que se incrementa en
+%cada iteracion.
+var = 1;
+x = 0;
+for j = 1 : Nc
+    for i = 1 : tamX
+        x(j,i) = var;
+        var = var + 1;
+    end
+end
+
+%Matriz de fases: Matriz donde se almacenran la suma obtenidoa en cada rama
+tamf = 4;
+tamInt = tamX;
+%Se determina el mayor tamaño que puede alcanzar la matriz
+for i = 1 : fases     
+    tamInt = (tamInt * 2 + tamf ) - 1;    
+end
+
+matSumInt(1:Nc, 1:tamInt) = 0;
+
+%Filtrado de sintesis
+acusuma = 0;
+acufcanal = 2*Nc;
+for  n = 1 : fases
+    acufcanal = acufcanal/2;
+    fcanal = acufcanal;
+    while fcanal > 0
+        
+        if mod(fcanal,FI) == 0
+            gint = g0;
+        else
+            gint = g1;
+        end
+        
+        acu = acu + conv(upsample(fcanal,FI),gint);
+        
+        if mod(fcanal,FI) == 0
+            lacu = length(acu);1
+            matSumInt(1:fcanal, 1:lacu) = acu;
+        end
+        
+        fcanal = fcanal -1;        
+    end        
+end

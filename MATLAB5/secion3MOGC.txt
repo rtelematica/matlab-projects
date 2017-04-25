@@ -1,0 +1,699 @@
+%¿Cual de los siguientes comando producira el arreglo?
+A=[1 3 2;2 1 1;3 2 3]
+
+A =
+
+     1     3     2
+     2     1     1
+     3     2     3
+
+% B=[3 2;2 1]
+B1=[A(3,2:3),A(2,1:2)]
+
+B1 =
+
+     2     3     2     1
+
+B2=[A(3,1:2),A(2,1:2)]
+
+B2 =
+
+     3     2     2     1
+
+B3=[A(1,2:3),A(1,2:3)']
+??? Error using ==> horzcat
+CAT arguments dimensions are not consistent.
+
+B3=[A(1,2:3),A(1:2,3)']
+
+B3 =
+
+     3     2     2     1
+
+B4=[A(3,3:-1:2),A(2,2:-1:1)]
+
+B4 =
+
+     3     2     1     2
+
+B1=[A(3,2:3);A(2,1:2)]
+
+B1 =
+
+     2     3
+     2     1
+
+B2=[A(3,1:2);A(2,1:2)]
+
+B2 =
+
+     3     2
+     2     1
+
+B3=[A(1,2:3);A(1:2,3)']
+
+B3 =
+
+     3     2
+     2     1
+
+B4=[A(3,3:-1:2);A(2,2:-1:1)]
+
+B4 =
+
+     3     2
+     1     2
+
+clear all
+clc
+A=[2 6;3 9],B=[1 2;3 4],C=[-5 5;5 3]
+
+A =
+
+     2     6
+     3     9
+
+
+B =
+
+     1     2
+     3     4
+
+
+C =
+
+    -5     5
+     5     3
+
+G=zeros(6)
+
+G =
+
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+
+G(1:2,1:2)=A
+
+G =
+
+     2     6     0     0     0     0
+     3     9     0     0     0     0
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+
+G(3:4,3:4)=B
+
+G =
+
+     2     6     0     0     0     0
+     3     9     0     0     0     0
+     0     0     1     2     0     0
+     0     0     3     4     0     0
+     0     0     0     0     0     0
+     0     0     0     0     0     0
+
+G(5:6,5:6)=C
+
+G =
+
+     2     6     0     0     0     0
+     3     9     0     0     0     0
+     0     0     1     2     0     0
+     0     0     3     4     0     0
+     0     0     0     0    -5     5
+     0     0     0     0     5     3
+
+A1=[1 2;3 4]
+
+A1 =
+
+     1     2
+     3     4
+
+B1=repmat[A1,3,5]
+??? B1=repmat[A1,3,5]
+             |
+Error: Unbalanced or unexpected parenthesis or bracket.
+
+B1=repmat(A1,3,5)
+
+B1 =
+
+     1     2     1     2     1     2     1     2     1     2
+     3     4     3     4     3     4     3     4     3     4
+     1     2     1     2     1     2     1     2     1     2
+     3     4     3     4     3     4     3     4     3     4
+     1     2     1     2     1     2     1     2     1     2
+     3     4     3     4     3     4     3     4     3     4
+
+%repmat (matriz, filas, columnas)
+V=[1 2 3 4]
+
+V =
+
+     1     2     3     4
+
+A2=[1:3;4:6;7:9]
+
+A2 =
+
+     1     2     3
+     4     5     6
+     7     8     9
+
+C1=repmat(V,4,1)
+
+C1 =
+
+     1     2     3     4
+     1     2     3     4
+     1     2     3     4
+     1     2     3     4
+
+[L U]=lu(A2)
+
+L =
+
+    0.1429    1.0000         0
+    0.5714    0.5000    1.0000
+    1.0000         0         0
+
+
+U =
+
+    7.0000    8.0000    9.0000
+         0    0.8571    1.7143
+         0         0    0.0000
+
+C=eig(A2)
+
+C =
+
+   16.1168
+   -1.1168
+   -0.0000
+
+%Devuelve los valores propios
+det(A2)
+
+ans =
+
+     0
+
+%determinante
+tril(A2)
+
+ans =
+
+     1     0     0
+     4     5     0
+     7     8     9
+
+%matriz tiangular inferior de l=low
+triu(A2)
+
+ans =
+
+     1     2     3
+     0     5     6
+     0     0     9
+
+%matriz tiangular superior de u=up
+H=hilb(6)
+
+H =
+
+    1.0000    0.5000    0.3333    0.2500    0.2000    0.1667
+    0.5000    0.3333    0.2500    0.2000    0.1667    0.1429
+    0.3333    0.2500    0.2000    0.1667    0.1429    0.1250
+    0.2500    0.2000    0.1667    0.1429    0.1250    0.1111
+    0.2000    0.1667    0.1429    0.1250    0.1111    0.1000
+    0.1667    0.1429    0.1250    0.1111    0.1000    0.0909
+
+format rat
+H
+
+H =
+
+       1              1/2            1/3            1/4            1/5            1/6     
+       1/2            1/3            1/4            1/5            1/6            1/7     
+       1/3            1/4            1/5            1/6            1/7            1/8     
+       1/4            1/5            1/6            1/7            1/8            1/9     
+       1/5            1/6            1/7            1/8            1/9            1/10    
+       1/6            1/7            1/8            1/9            1/10           1/11    
+
+%Matriz de hilbert
+cond(H)
+
+ans =
+
+14951059       
+
+format long
+cond(H)
+
+ans =
+
+    1.495105864100543e+007
+
+%Condicion para saber si la matriz tiene o no solucion
+clear all
+clcl
+??? Undefined function or variable 'clcl'.
+
+clc
+%Multiplicacion de Matrices
+A=[1 0 3;2 -1 -2], B=[-2 4 2;1 0 0;-1 1 -1]
+
+A =
+
+     1     0     3
+     2    -1    -2
+
+
+B =
+
+    -2     4     2
+     1     0     0
+    -1     1    -1
+
+C=A*B
+
+C =
+
+    -5     7    -1
+    -3     6     6
+
+A1=[1 -2 -3], B1[2 -1 1]'
+??? A1=[1 -2 -3], B1[2 -1 1]'
+                    |
+Error: Unbalanced or unexpected parenthesis or bracket.
+
+A1=[1 -2 -3], B1=[2 -1 1]'
+
+A1 =
+
+     1    -2    -3
+
+
+B1 =
+
+     2
+    -1
+     1
+
+C1=A1*B1
+
+C1 =
+
+     1
+
+A2=[2 -1 1]', B2=[1 -2 -3]
+
+A2 =
+
+     2
+    -1
+     1
+
+
+B2 =
+
+     1    -2    -3
+
+C2=A2*B2
+
+C2 =
+
+     2    -4    -6
+    -1     2     3
+     1    -2    -3
+
+A3=[1 0 3 -2 4;6 13 8 -17 20], B3=[1 6;4 2]
+
+A3 =
+
+     1     0     3    -2     4
+     6    13     8   -17    20
+
+
+B3 =
+
+     1     6
+     4     2
+
+C3=A3*B3
+??? Error using ==> mtimes
+Inner matrix dimensions must agree.
+
+%producto de matrices no conmutativo
+C3=b3*A3
+??? Undefined function or variable 'b3'.
+
+C3=B3*A3
+
+C3 =
+
+    37    78    51  -104   124
+    16    26    28   -42    56
+
+A4=[5 2 3;1 -2 6]
+
+A4 =
+
+     5     2     3
+     1    -2     6
+
+x=[-1 1 0]'
+
+x =
+
+    -1
+     1
+     0
+
+b=A4*x
+
+b =
+
+    -3
+    -3
+
+y=[2 -17]
+
+y =
+
+     2   -17
+
+c=y*A4
+
+c =
+
+    -7    38   -96
+
+A5=[1 0 -1;5 -3 6;7 3 1], B5=[2 2 1;-1 4 1;0 0 2]
+
+A5 =
+
+     1     0    -1
+     5    -3     6
+     7     3     1
+
+
+B5 =
+
+     2     2     1
+    -1     4     1
+     0     0     2
+
+A5*B5
+
+ans =
+
+     2     2    -1
+    13    -2    14
+    11    26    12
+
+B5*A5
+
+ans =
+
+    19    -3    11
+    26    -9    26
+    14     6     2
+
+%producto crux
+% vector fila y vector columna necesarios
+a=[1 3 -4]', b=[2 -1 0]
+
+a =
+
+     1
+     3
+    -4
+
+
+b =
+
+     2    -1     0
+
+cross(a,b)    %producto cruz de a con b
+
+ans =
+
+    -4    -8    -7
+
+cross(b,a)    %producto cruz de b con a
+
+ans =
+
+     4     8     7
+
+% es una matriz simetrica si es igual a su traspuesta
+S=[2 -1 0;-1 2 -1;0 -1 2]
+
+S =
+
+     2    -1     0
+    -1     2    -1
+     0    -1     2
+
+St=S'
+
+St =
+
+     2    -1     0
+    -1     2    -1
+     0    -1     2
+
+S+St
+
+ans =
+
+     4    -2     0
+    -2     4    -2
+     0    -2     4
+
+claer all
+??? Undefined function or method 'claer' for input arguments of type 'char'.
+
+clear all
+a=[1;3;4]; b=[2;-1;0]; c=[5;7;1];
+[cross(a,b), cross(b,a)]
+
+ans =
+
+     4    -4
+     8    -8
+    -7     7
+
+[cross(a,cross(b,c)), cross(cross(a,b),c)]
+
+ans =
+
+    65    57
+   -23   -39
+     1   -12
+
+dot(a,cross(a,b)),dot(b,cross(a,b))%vectorial
+
+ans =
+
+     0
+
+
+ans =
+
+     0
+
+clear all
+clc
+B=[eye(5)]
+
+B =
+
+     1     0     0     0     0
+     0     1     0     0     0
+     0     0     1     0     0
+     0     0     0     1     0
+     0     0     0     0     1
+
+%matriz identidad
+C=[ones(5,2) zeros(5,3)];
+D=[zeros(5,3) ones(5,2)];
+G=[1:5;6:10;11:15;16:20;21:25]
+
+G =
+
+     1     2     3     4     5
+     6     7     8     9    10
+    11    12    13    14    15
+    16    17    18    19    20
+    21    22    23    24    25
+
+E=G'
+
+E =
+
+     1     6    11    16    21
+     2     7    12    17    22
+     3     8    13    18    23
+     4     9    14    19    24
+     5    10    15    20    25
+
+A=[B C;E D]
+
+A =
+
+     1     0     0     0     0     1     1     0     0     0
+     0     1     0     0     0     1     1     0     0     0
+     0     0     1     0     0     1     1     0     0     0
+     0     0     0     1     0     1     1     0     0     0
+     0     0     0     0     1     1     1     0     0     0
+     1     6    11    16    21     0     0     0     1     1
+     2     7    12    17    22     0     0     0     1     1
+     3     8    13    18    23     0     0     0     1     1
+     4     9    14    19    24     0     0     0     1     1
+     5    10    15    20    25     0     0     0     1     1
+
+%armado de una matriz a partir de otras declaradas
+clear all
+cloc
+??? Undefined function or variable 'cloc'.
+
+clc
+x=-pi:pi20:pi;
+??? Undefined function or variable 'pi20'.
+
+x=-pi:pi/20:pi;
+plot(x,sin(x),'r-',x,cos(x),'b:')
+%plot(x,sin(x),'r-',x,cos(x),'b:')  graficas plot(datos,funcion,'color estilo')
+clf
+%clf borra grficas
+xx=2*pi*(0:0.02:1)
+
+xx =
+
+  Columns 1 through 4
+
+                   0   0.125663706143592   0.251327412287183   0.376991118430775
+
+  Columns 5 through 8
+
+   0.502654824574367   0.628318530717959   0.753982236861550   0.879645943005142
+
+  Columns 9 through 12
+
+   1.005309649148734   1.130973355292326   1.256637061435917   1.382300767579509
+
+  Columns 13 through 16
+
+   1.507964473723101   1.633628179866693   1.759291886010284   1.884955592153876
+
+  Columns 17 through 20
+
+   2.010619298297468   2.136283004441060   2.261946710584651   2.387610416728243
+
+  Columns 21 through 24
+
+   2.513274122871835   2.638937829015426   2.764601535159018   2.890265241302610
+
+  Columns 25 through 28
+
+   3.015928947446201   3.141592653589793   3.267256359733385   3.392920065876977
+
+  Columns 29 through 32
+
+   3.518583772020569   3.644247478164160   3.769911184307752   3.895574890451344
+
+  Columns 33 through 36
+
+   4.021238596594936   4.146902302738527   4.272566008882119   4.398229715025710
+
+  Columns 37 through 40
+
+   4.523893421169302   4.649557127312894   4.775220833456485   4.900884539600077
+
+  Columns 41 through 44
+
+   5.026548245743669   5.152211951887261   5.277875658030852   5.403539364174444
+
+  Columns 45 through 48
+
+   5.529203070318036   5.654866776461628   5.780530482605220   5.906194188748811
+
+  Columns 49 through 51
+
+   6.031857894892402   6.157521601035994   6.283185307179586
+
+plot(xx,sin(xx),grid)
+??? Error using ==> grid
+Too many output arguments.
+
+plot(xx,sin(xx)),grid
+plot(xx,1./xx),grid
+%grid mallado
+clear all
+clc
+x=-pi:pi/20:pi;
+plot(x,sin(x),'r--')
+hold on %mantiene grafica abierta para sobreescribir
+plot(x;cos(x),'b:')
+??? plot(x;cos(x),'b:')
+          |
+Error: Unbalanced or unexpected parenthesis or bracket.
+
+plot(x,cos(x),'b:')
+hold off
+clear all
+clf
+clc
+plot([0 4],[1 3])   % del (0,1) al (4,3)
+X=-3:0.2:3;
+y=x.^2+7*x-3;
+??? Undefined function or variable 'x'.
+
+y=X.^2+7*X-3;
+grid
+plot(X,y)
+clear all
+x=0:pi/40:pi;
+plot(sin(x),cos(x)),axis('equal')
+clear all
+y=[1:10]'*[1:10]
+
+y =
+
+     1     2     3     4     5     6     7     8     9    10
+     2     4     6     8    10    12    14    16    18    20
+     3     6     9    12    15    18    21    24    27    30
+     4     8    12    16    20    24    28    32    36    40
+     5    10    15    20    25    30    35    40    45    50
+     6    12    18    24    30    36    42    48    54    60
+     7    14    21    28    35    42    49    56    63    70
+     8    16    24    32    40    48    56    64    72    80
+     9    18    27    36    45    54    63    72    81    90
+    10    20    30    40    50    60    70    80    90   100
+
+plot(y)
+clear all
+fplot('x.*sin(x)';[0 10^pi])
+??? fplot('x.*sin(x)';[0 10^pi])
+                     |
+Error: Unbalanced or unexpected parenthesis or bracket.
+
+fplot('x.*sin(x)';[0 10*pi])
+??? fplot('x.*sin(x)';[0 10*pi])
+                     |
+Error: Unbalanced or unexpected parenthesis or bracket.
+
+dairy off
+??? Undefined function or method 'dairy' for input arguments of type 'char'.
+
+diary off

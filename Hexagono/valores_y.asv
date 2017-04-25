@@ -1,0 +1,17 @@
+
+function z = valores_y(mat_dist)
+
+    mat
+    for j = 1 : length( mat_dist( :, 1 ) )
+        for i = 1 : length( mat_dist( 1, :) )
+            
+            if mat_dist( j, i ) == 1
+                
+            else
+                
+            end
+            
+        end
+    end
+
+end

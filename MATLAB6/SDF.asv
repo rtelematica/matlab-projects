@@ -1,0 +1,23 @@
+%% Practica 3
+%% Serie Discreta de Fourier
+
+% Expresion general 
+
+N = 9;
+dosN_1 = 5;
+periodo = 4;
+
+a = 0;
+i = 1;
+for k = - N * periodo : N * periodo
+  
+    if mod( k, N) == 0
+        
+        a( i ) = dosN_1 / N;
+        
+    else
+       
+        a( i ) = 1 / N * sin(  )
+    end
+    
+end

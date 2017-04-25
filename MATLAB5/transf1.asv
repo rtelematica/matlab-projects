@@ -1,0 +1,34 @@
+function[xp,t]=transf1(fm)
+
+%fm=1000;
+t=0:1/fm:0.5;
+
+xp1=sin(2*pi*60*t);
+xp2=sin(2*pi*100*t);
+xpt=xp1+xp2;
+
+YFt=fft(xpt);
+
+lft=floor(length(YFt)/2);
+YFt=YFt(1:lft);
+%Eje de frecuencia
+ft=(0:lft-1)*(fm/2)/(lft-1);
+
+Figure(1)
+subplot(2,1,1), plot(t,xpt);
+subplot(2,1,2), plot(ft,abs(YFt));
+
+
+YF1=fft(xp1);
+YF2=fft(xp2);
+
+YFt2=YF1+Yf2;
+
+lft2=floor(length(YFt2)/2);
+YFt2=YFt2(1:lft2);
+%Eje de frecuencia
+f=(0:lf-1)*(fm/2)/(lf-1);
+
+Figure(2)
+subplot(2,1,1), plot(t,xp);
+subplot(2,1,2), plot(f,abs(YF));

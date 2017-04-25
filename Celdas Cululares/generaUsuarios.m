@@ -1,0 +1,84 @@
+
+function [x,y] = generaUsuarios( N, r, DELTA , x0, y0 )
+% 
+%     DELTA = 0.03;
+%     r = 3;
+%     N = 10;
+
+    h = sqrt(3)/2 * r;
+    l = r / 2;
+    
+    xl = x0 + l;
+    xl_ = x0 - l;
+
+    xr = x0 + r;
+    xr_ = x0 - r;
+ 
+    yh = y0 + h;
+    yh_ = y0 - h;
+
+    %Coordendas x de los puntos Pi
+    hexa_x = [ xl_, xl, xr, xl, xl_, xr_, xl_ ];
+
+    %Coordenadas y de los puntos Pi
+    hexa_y = [ yh, yh, y0, yh_, yh_, y0, yh ];
+    
+    h = sqrt(3)/2 * r;
+    
+    dr = 2*DELTA;
+    dh = 2*DELTA;
+    
+    ytam_h = round((2*h + 2*dh)/DELTA)
+    xtam_r = round((2*r + 2*dr)/DELTA)
+    
+    Px = 0;
+    Py = 0;
+    i = 1;
+    
+    while i <= N
+    
+        aux_x = x0-r-dr + DELTA*(randi(xtam_r,1)-1);
+        aux_y = y0-h-dh + DELTA*(randi(ytam_h,1)-1);
+        
+        %Comprobamos que el punto antes calculado se encuentre dentro del
+        %hexagono
+        if aux_y >= y0 - h & aux_y <= y0 + h 
+            
+            if aux_y  >= (h/(r-l)*aux_x + y0 - h*(x0+r)/(r-l)) & aux_y <= (h/(r-l)*aux_x + y0 - h*(x0-r)/(r-l))
+                
+                if aux_y  >= (h/(l-r)*aux_x + y0 - h*(x0-r)/(l-r)) & aux_y <= (h/(l-r)*aux_x + y0 - h*(x0+r)/(l-r))
+                    Px(i) = aux_x;
+                    Py(i) = aux_y;
+                    
+                else
+                    i = i - 1;
+                end
+            else
+                i = i -1;
+                
+            end
+        else
+            i = i - 1;
+        end
+        
+        i = i + 1;
+    end
+    
+    x = Px;
+    y = Py;
+    
+    %dibujamos rectangulo de lados 2r, 2h centrado en x0, y0
+    
+%     hold on
+%     rec_x = [x0-r x0-r x0+r x0+r x0-r];
+%     rec_y = [y0-h y0+h y0+h y0-h y0-h];
+%     plot(rec_x, rec_y, '- ')
+%     
+%     %dibujamos rectangulo de lados 2r+dr, 2h+dh centrado en x0, y0
+%     
+%     rec_x = [x0-r-dr x0-r-dr x0+r+dr x0+r+dr x0-r-dr];
+%     rec_y = [y0-h-dh y0+h+dh y0+h+dh y0-h-dh y0-h-dh];
+%     plot(rec_x, rec_y, '- ')
+%     
+
+end

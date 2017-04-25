@@ -1,0 +1,6 @@
+%% Graficación del cálculo analíico:
+%       X( w ) = ( 1 - e.^( -j * 5 * w ) ) / (1 - e.^( -j * w )
+
+w = [-100 : 0.001 : 100 ];
+
+Xw = (1 - exp( -sqrt(-1) * 5 * w )) / ( 1 - exp())

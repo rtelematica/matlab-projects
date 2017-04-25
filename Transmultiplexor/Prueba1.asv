@@ -1,0 +1,59 @@
+%% Transmultiplexor de 2 canales
+
+clc;
+clear all;
+format short;
+
+
+x = 1:10;
+
+typeofbasis = '0';
+typbior = 'bior2.2';
+typor = 'db1';
+if typeofbasis == 'b'
+    
+    [Rf,Df] = biorwavf(typbior);
+    [h0,h1,g0,g1] = biorfilt(Rf,Df);
+    
+else
+    
+    [h0,h1,g0,g1] = wfilters(typor);
+    
+end
+
+h0
+h1
+g0
+g1
+
+x1 = [ 0.5 2.5 ];
+x1 = upsample(x1,2);
+c1 = conv(x, g0)
+
+x2 = [ -0.5 2.5 ];
+x2 = upsample(x2,2);
+c2 = conv(x, g1)
+
+x1 = [ 0.5 2.5 ];
+x1 = upsample(x1,2);
+c1 = conv(x, g0)
+
+
+
+pause
+
+
+x1 = [1 2 3 1 2 3];
+x2 = [4 5 6 4 5 6];
+
+s1 = upsample(x1,2);
+s2 = upsample(x2,2);
+
+c1 = conv(s1,g0);
+c2 = conv(s2,g1);
+
+y = c1 + c2;
+
+c3 = conv(y(1:length(y)),h0)
+c4 = conv(y(1:length(y)),h1)
+

@@ -1,0 +1,24 @@
+
+%% Ecuacion de síntesis para la serie discreta de fourier
+
+dosN_1 = 5;
+N = 9;
+x = 0;
+per = 10;
+acum = 0;
+n = 1;
+for i = -per : per 
+    
+    for k = 1 : 7
+        
+        acum = acum + coef_ak( k, N, dosN_1) * exp( sqrt(-1) * 2 * pi * k * i / N );
+        
+    end
+    
+    x(n) = acum;
+    acum = 0;
+    n = n + 1;
+end
+
+figure(2 )
+stem(-per:per, abs(x));

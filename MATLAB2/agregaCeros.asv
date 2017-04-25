@@ -1,0 +1,15 @@
+function y = agregaCeros(x, n)
+
+    xx = 0;
+    ixx = 1;
+    x_len = length(x);
+    for i = 1 : x_len                
+        xx(ixx) = x(i);
+        if i == x_len
+            break;
+        end
+        xx(ixx+1) = 0;
+        ixx = ixx + 2;
+    end
+    y = xx;
+end

@@ -1,0 +1,40 @@
+%% Principal
+
+close all;
+
+h = 10;
+DELTA = 0.2    ;
+esp = 7;  %Número par/impar
+
+x = [ 0 : DELTA : 2.32*h ];
+y = [ 0 : DELTA : 2*h ];
+numUser = 0;
+%Se genera la matriz de distribucion de usuario, si hay usuario habra 1
+%sino 0
+[matDistribucion, numUser] = dist_Uniforme1( length(x), length(y), esp);
+
+%Se quitan los puntos que esten fuera del hexagono
+matDistribucion = delimitar_Hexagono( matDistribucion, h, DELTA );
+
+%Se calcula la distancia del puto al centro
+matDistancia = distancia_Puntos( matDistribucion, h, DELTA );
+
+%Matriz de valores, se asigna el valor en y si hay un usuario en
+%matDistribucion
+
+matValoresY = valores_y(matDistribucion, DELTA );
+
+yy = [ 2*h, h, 0, 0, h, 2*h ];
+xx = [ 3*0.58*h, 4*0.58*h, 3*0.58*h, 0.58*h, 0, 0.58*h];
+
+l = [ 2.32*h 2.32*h];
+ll=[ 2*h 0];
+
+
+figure(1)
+hold on;
+plot(x, matValoresY, 'o')
+plot(xx,yy)
+plot(l,ll)
+
+

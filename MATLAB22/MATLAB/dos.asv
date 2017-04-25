@@ -1,0 +1,12 @@
+clear all;
+close all;
+
+fs=8192;
+t=0:1/fs:5;
+x=cos(2*pi*697*t)+cos(2*pi*1209*t);
+x1=cos(2*pi*941*t)+cos(2*pi*1633*t);
+x2=cos(2*pi*852*t)+cos(2*pi*1477*t);
+xd=[x,x1,x2]
+
+sound(xd)
+
